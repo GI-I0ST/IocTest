@@ -24,6 +24,8 @@ public class IocSecondTestApplication implements CommandLineRunner {
         context.registerBean(SecondService.class);
         context.registerBean(FirstService.class);
         context.refresh();
+
+        // Registered beans are in GenericApplicationContext and not printed here
         Stream.of(applicationContext.getBeanDefinitionNames()).forEach(System.out::println);
 
         FirstService firstService = context.getBean(FirstService.class);
